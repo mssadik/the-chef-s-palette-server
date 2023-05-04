@@ -5,6 +5,7 @@ const port = 5000;
 
 app.use(cors());
 const chefData = require('./chefData/chefData.json')
+const data = require('./chefData/data.json')
 
 app.get('/',(req, res) =>{
     res.send('Hello Bangladesh!');
@@ -19,6 +20,10 @@ app.get('/chefData/:id', (req, res) =>{
 
     const details = chefData.find(n => n.id == id);
     res.send(details)
+})
+
+app.get('/data', (req, res) =>{
+    res.send(data)
 })
 
 app.listen(port, () =>{
